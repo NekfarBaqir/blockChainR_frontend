@@ -2,6 +2,6 @@ export const config = {
   maxSupply: 10000,
   mintPrice: "0.03",
   purchaseLimit: 5,
-  address: "0xCa16d93283Ef8E88ee3aD9775eB47528a267B2C9",
+  address: "0x760797ecD527143e26806B480F0261C3829A2440",
   chainId: 4,
 };

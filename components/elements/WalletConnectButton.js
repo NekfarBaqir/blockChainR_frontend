@@ -1,8 +1,8 @@
 import { useWeb3React } from "@web3-react/core";
 import { InjectedConnector } from "@web3-react/injected-connector";
 
-import { config } from "../config";
-import { shortenAddress } from "../utils/shortedAddress";
+import { config } from "../../config";
+import { shortenAddress } from "../../utils/shortedAddress";
 
 export const injected = new InjectedConnector({
   supportedChainIds: [config.chainId],
@@ -30,9 +30,7 @@ export function WalletConnectButton({ children, ...props }) {
     <button
       onClick={connect}
       className={`
-          !outline-none normal-case text-sm ml-auto !rounded-full 
-          min-w-[124px]
-          `}
+         bg-gradient-to-r from-bluishCyan to-greenishCyan px-2 md:px-4 py-1 md:py-2 rounded-3xl`}
       {...props}
     >
       {addressInfo}

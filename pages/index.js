@@ -1,5 +1,12 @@
-export default function Home() {
+import Layout from "../components/common/Layout";
+import MintSection from "../components/containers/MintSection";
+
+const Home = () => {
   return (
-    <h1 className="text-3xl font-bold underline bg-yellow-500">Hello world!</h1>
+    <Layout>
+      <MintSection />
+    </Layout>
   );
-}
+};
+
+export default Home;
