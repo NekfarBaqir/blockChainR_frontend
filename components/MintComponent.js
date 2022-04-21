@@ -70,6 +70,7 @@ const MintComponent = () => {
         showMessage("success", `Successfully Minted`);
       }
     } catch (error) {
+      showMessage("error", error.message);
       console.log(error);
     }
     return;
