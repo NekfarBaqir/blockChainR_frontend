@@ -3,6 +3,7 @@ import { ethers } from "ethers";
 import React, { useState, useEffect } from "react";
 import { config } from "../config";
 import { useContract } from "../hooks/useContract";
+import showMessage from "../utils/showMessage";
 import { CountDown } from "./CountDown";
 import Counter from "./elements/Counter";
 
@@ -33,22 +34,40 @@ const MintComponent = () => {
     setBalance(balance);
   };
 
+  const LinkToEtherScan = (hash) => {
+    console.log(hash, "here is the hash");
+    return (
+      <a
+        href={`https://rinkeby.etherscan.io/tx/${hash}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        View on etherscan
+      </a>
+    );
+  };
   const mintHandler = async () => {
+    if (!account) {
+      showMessage("error", "Please connect your wallet!");
+      return;
+    }
     const value = ethers.utils.parseEther(
       `${counter * Number(config.mintPrice)}`
     );
     if (value.gt(balance)) {
-      alert("insufficient Balance!");
+      showMessage("error", "InSufficient Balance!");
       return;
     }
     try {
       const tx = await signContract.mint(counter, {
         value: value,
       });
+      showMessage("success", LinkToEtherScan(tx?.hash));
 
       const rs = await tx.wait();
       if (rs) {
-        alert("Successfully Minted");
+        getCurrentSupply();
+        showMessage("success", `Successfully Minted`);
       }
     } catch (error) {
       console.log(error);
@@ -56,13 +75,15 @@ const MintComponent = () => {
     return;
   };
 
-  
   return (
     <div className="flex flex-col items-start justify-center px-3 md:px-4 lg:px-8 xl:px-12">
-      <h2 className="text-2xl md:text-3xl lg:text-4xl mt-5 md:mt-8 lg:mt-12">
+      <h2 className="text-2xl md:text-3xl lg:text-4xl mt-5 md:mt-8 lg:mt-12 w-full text-center sm:text-left">
         Blockchainr VIP ACCESS Started
       </h2>
-      <CountDown time={"April 22, 2022 5:00:00 AM GMT+8 (singapore time)"} />
+      <div className="w-full text-center sm:text-left">
+        <CountDown time={"April 22, 2022 5:00:00 AM GMT+8 (singapore time)"} />
+      </div>
+
       <h2 className="text-2xl md:text-3xl lg:text-4xl mt-4 ml-3 text-bluishCyan">
         {currentSupply}/1000 Sold
       </h2>

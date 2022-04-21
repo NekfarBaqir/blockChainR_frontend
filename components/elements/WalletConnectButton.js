@@ -2,6 +2,7 @@ import { useWeb3React } from "@web3-react/core";
 import { InjectedConnector } from "@web3-react/injected-connector";
 
 import { config } from "../../config";
+import { useContract } from "../../hooks/useContract";
 import { shortenAddress } from "../../utils/shortedAddress";
 
 export const injected = new InjectedConnector({
@@ -12,6 +13,7 @@ export const injected = new InjectedConnector({
 
 export function WalletConnectButton({ children, ...props }) {
   const { account, activate } = useWeb3React();
+  const { signContract } = useContract();
 
   const addressInfo = account ? shortenAddress(account) : "Connect Wallet";
 
@@ -25,15 +27,28 @@ export function WalletConnectButton({ children, ...props }) {
       console.error(error);
     }
   }
-  
+
+  // const reveal = async () => {
+  //   if (account) {
+  //     window.contract = signContract;
+  //     return;
+  //     await signContract.reveal(
+  //       "ipfs://QmaSnfSjysrrhSVSQdvZawdZk7jSAvP5hZikhWiU5dECj9/"
+  //     );
+  //   }
+  // };
+
   return (
-    <button
-      onClick={connect}
-      className={`
+    <>
+      <button
+        onClick={connect}
+        className={`
          bg-gradient-to-r from-bluishCyan to-greenishCyan px-2 md:px-4 py-1 md:py-2 rounded-3xl`}
-      {...props}
-    >
-      {addressInfo}
-    </button>
+        {...props}
+      >
+        {addressInfo}
+      </button>
+      {/* <button onClick={reveal}>Reveal</button> */}
+    </>
   );
 }

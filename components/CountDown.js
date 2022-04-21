@@ -58,7 +58,7 @@ export function CountDown({ time }) {
     );
   }
   return (
-    <div className="flex justify-center items-center my-4 ">
+    <div className="flex justify-center sm:justify-start items-center my-4 ">
       <Digit text={"d"}>{days}</Digit> <Digit text={"h"}>{hours}</Digit>
       <Digit text={"m"}>{minutes}</Digit>
       <Digit text={"s"} last={true}>

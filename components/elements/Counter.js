@@ -19,16 +19,16 @@ const Counter = ({ setCounter, counter }) => {
     <div className="flex justify-center items-center gap-2 md:gap-3">
       <button
         onClick={decreaseCounterHandler}
-        className="select-none text-gray-500 text-xs md:text-lg xl:text-xl"
+        className="select-none text-gray-500 text-xl"
       >
         -
       </button>
-      <p className=" select-none text-bluishCyan text-lg md:text-xl xl:text-2xl w-[30px] text-center">
+      <p className=" select-none text-bluishCyan text-xl xl:text-2xl w-[30px] text-center">
         {counter}
       </p>
       <button
         onClick={increaseCounterHandler}
-        className="select-none text-gray-500 text-xs md:text-lg xl:text-xl"
+        className="select-none text-gray-500 text-xl"
       >
         +
       </button>
