@@ -82,7 +82,7 @@ const MintComponent = () => {
         Blockchainr VIP ACCESS Started
       </h2>
       <div className="w-full text-center sm:text-left">
-        <CountDown time={"April 22, 2022 5:00:00 AM GMT+8 (singapore time)"} />
+        <CountDown time={"April 25, 2022 5:00:00 AM GMT+8 (singapore time)"} />
       </div>
 
       <h2 className="text-2xl md:text-3xl lg:text-4xl mt-4 ml-3 text-bluishCyan">
