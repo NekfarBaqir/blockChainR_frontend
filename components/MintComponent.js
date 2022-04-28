@@ -101,7 +101,7 @@ const MintComponent = () => {
         ) : (
           <button
             onClick={() => setOpen(true)}
-            className=" bg-gradient-to-r from-bluishCyan to-greenishCyan w-[200px] lg:px-8 py-3 text-white font-bold md:py-4   px-6 md:px-12 rounded-3xl my-4 md:my-8 lg:my-12"
+            className=" bg-gradient-to-r from-bluishCyan to-greenishCyan w-[200px] hover:from-cyan-600 transition-all hover:to-blue-700 lg:px-8 py-3 text-white font-bold md:py-4   px-6 md:px-12 rounded-3xl my-4 md:my-8 lg:my-12"
           >
             Mint
           </button>
@@ -135,7 +135,7 @@ const MintComponent = () => {
         <div className="text-center">
           <button
             onClick={mintHandler}
-            className=" bg-gradient-to-r from-bluishCyan to-greenishCyan w-[200px] lg:px-8 py-3 text-white font-bold md:py-4   px-6 md:px-12 rounded-3xl my-4 md:my-8 lg:my-12"
+            className=" bg-gradient-to-r from-bluishCyan to-greenishCyan hover:from-cyan-600 transition-all hover:to-blue-700 w-[200px] lg:px-8 py-3 text-white font-bold md:py-4   px-6 md:px-12 rounded-3xl my-4 md:my-8 lg:my-12"
           >
             Mint
           </button>
