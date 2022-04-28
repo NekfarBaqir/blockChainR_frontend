@@ -1,13 +1,18 @@
 import { useWeb3React } from "@web3-react/core";
 import { ethers } from "ethers";
 import React, { useState, useEffect } from "react";
+import Slider, { Range } from "rc-slider";
+import "rc-slider/assets/index.css";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+
 import { config } from "../config";
 import { useContract } from "../hooks/useContract";
 import showMessage from "../utils/showMessage";
 import { CountDown } from "./CountDown";
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-const percentage = 66;
+import Modal from "./elements/Modal";
+
+
 const MintComponent = () => {
   const { account, library } = useWeb3React();
   const [counter, setCounter] = useState(1);
@@ -15,6 +20,7 @@ const MintComponent = () => {
   const [currentSupply, setCurrentSupply] = useState(0);
   const [paused, setPaused] = useState(false);
   const [balance, setBalance] = useState(0);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     if (account) {
       console.log(signContract, "here is the contract");
@@ -94,7 +100,7 @@ const MintComponent = () => {
           </h2>
         ) : (
           <button
-            onClick={mintHandler}
+            onClick={() => setOpen(true)}
             className=" bg-gradient-to-r from-bluishCyan to-greenishCyan w-[200px] lg:px-8 py-3 text-white font-bold md:py-4   px-6 md:px-12 rounded-3xl my-4 md:my-8 lg:my-12"
           >
             Mint
@@ -102,29 +108,39 @@ const MintComponent = () => {
         )}
       </div>
       <div className="w-[300px]">
-      <CircularProgressbar value={(currentSupply/1000)*100} text={`${currentSupply}/1000`} />
+        <CircularProgressbar
+          value={(currentSupply / 1000) * 100}
+          text={`${currentSupply}/1000`}
+        />
       </div>
 
-      {/* <h2 className="text-2xl md:text-3xl lg:text-4xl mt-4 ml-3 text-bluishCyan">
-        {currentSupply}/1000 Sold
-      </h2>
-      <div className="w-full sm:w-10/12 md:w-3/4 lg:w-1/2  rounded-xl bg-white p-4 md:p-6 flex flex-col justify-center items-start flex-wrap my-4 md:my-6">
-        <div className="w-full flex justify-between items-start">
-          <p className="text-black text-base md:text-lg">Number of tokens</p>
-          <Counter counter={counter} setCounter={setCounter} />
+      <Modal open={open} setOpen={setOpen}>
+        <div className="flex flex-col md:flex-row justify-center items-center sm:gap-3">
+          <h1 className="text-center text-2xl md:text-3xl lg:text-4xl md:my-3 font-bold">
+            {counter}
+          </h1>
+          <p className="text-bluishCyan text-lg text-right md:text-xl xl:text-2xl">
+            ({counter * Number(config.mintPrice)}ETH)
+          </p>
         </div>
-        <div className="w-full flex justify-between items-start">
-          <p className="text-black text-base md:text-lg">Your total amount</p>
-          <div>
-            <p className="text-bluishCyan text-lg text-right md:text-xl xl:text-2xl">
-              {counter * Number(config.mintPrice)}
-            </p>
-            <p className="text-gray-500 text-xs md:text-sm ">
-              ({config.mintPrice}ETH per token)
-            </p>
-          </div>
+        <div className="px-3 md:px-4">
+          <Slider
+            min={1}
+            max={5}
+            step={1}
+            value={counter}
+            onChange={(val) => setCounter(val)}
+          />
         </div>
-      </div> */}
+        <div className="text-center">
+          <button
+            onClick={mintHandler}
+            className=" bg-gradient-to-r from-bluishCyan to-greenishCyan w-[200px] lg:px-8 py-3 text-white font-bold md:py-4   px-6 md:px-12 rounded-3xl my-4 md:my-8 lg:my-12"
+          >
+            Mint
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 };
