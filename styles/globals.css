@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* font */
 @font-face {
   font-family: myFirstFont;
@@ -14,6 +13,9 @@
 }  */
 
 /* custom classes */
-.box-shadow-large{
-    box-shadow:30px 30px 100px #0d7dd8, -30px -30px 100px #412df1;
+html {
+  scroll-behavior: smooth;
+}
+.box-shadow-large {
+  box-shadow: 30px 30px 100px #0d7dd8, -30px -30px 100px #412df1;
 }

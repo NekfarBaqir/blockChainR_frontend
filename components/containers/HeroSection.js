@@ -1,5 +1,3 @@
-
-
 export default function HeroSection() {
   return (
     <div className="relative flex flex-col-reverse lg:block bg-white overflow-hidden">
@@ -8,8 +6,12 @@ export default function HeroSection() {
           <section className="mt-10 mx-auto max-w-7xl sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="text-center lg:text-left block xl:inline">Cool Cat</span>{" "}
-                <span className="text-center lg:text-left block text-bluishCyan xl:inline">NFT</span>
+                <span className="text-center lg:text-left block xl:inline">
+                  Cool Cat
+                </span>{" "}
+                <span className="text-center lg:text-left block text-bluishCyan xl:inline">
+                  NFT
+                </span>
               </h1>
               <p className="mt-3 p-4 sm:p-0 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 Land which gives birth of baby cats and grow them step by step
@@ -27,7 +29,7 @@ export default function HeroSection() {
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <a
-                    href="#"
+                    href="#mint"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-3xl text-bluishCyan bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                   >
                     Mint now!
