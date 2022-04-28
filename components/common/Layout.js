@@ -5,7 +5,7 @@ import Nav from "./Nav";
 const Layout = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col justify-start items-start">
-      <div className="fixed">
+      {/* <div className="fixed">
         <Image
           className=""
           src={"/images/bluishBackgournd.svg"}
@@ -44,8 +44,8 @@ const Layout = ({ children }) => {
           layout="fixed"
           alt="second-background"
         />
-      </div>
-      <header className="flex-0 w-full sticky top-0 z-50 overflow-hidden max-w-[1366px] mx-auto ">
+      </div> */}
+      <header className="flex-0 w-full max-w-[1366px] mx-auto ">
         <Nav />
       </header>
       <main className="flex-1 w-full overflow-hidden max-w-[1366px] mx-auto z-40 ">

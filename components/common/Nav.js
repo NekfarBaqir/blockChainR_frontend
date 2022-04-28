@@ -7,8 +7,8 @@ const Nav = () => {
     <div className="flex justify-between items-center w-full p-2 md:p-4 lg:p-6 bg-gradient-to-b from-white to-transparent">
       <Image
         src={"/images/logo.png"}
-        width={260}
-        height={34}
+        width={100}
+        height={53}
         layout="fixed"
         alt="logo"
       />

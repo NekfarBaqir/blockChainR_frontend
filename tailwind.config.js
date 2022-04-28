@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bluishCyan: "#4CD9ED",
-        greenishCyan: "#5FEFC0",
+        bluishCyan: "#38c3f7",
+        greenishCyan: "#2d77f1",
       },
     },
   },
